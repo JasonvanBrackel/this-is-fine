@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+        <RootNamespace>morehumansoftware.thisisfine.EventProcessor</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.2\EventProcessor.csproj.ResolveComReference.cache" />
+      <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.2\EventProcessor.csproj.ResolveComReference.cache" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <IntermediateAssembly Remove="obj\Debug\netcoreapp2.2\EventProcessor.dll" />
+      <IntermediateAssembly Remove="obj\Debug\netcoreapp2.2\EventProcessor.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_DebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.2\EventProcessor.pdb" />
+      <_DebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.2\EventProcessor.pdb" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_DeploymentManifestEntryPoint Remove="obj\Debug\netcoreapp2.2\EventProcessor.dll" />
+      <_DeploymentManifestEntryPoint Remove="obj\Debug\netcoreapp2.2\EventProcessor.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ApplicationManifest Remove="obj\Debug\netcoreapp2.2\EventProcessor.dll.manifest" />
+      <ApplicationManifest Remove="obj\Debug\netcoreapp2.2\EventProcessor.dll.manifest" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <DeployManifest Remove="obj\Debug\netcoreapp2.2\EventProcessor.application" />
+      <DeployManifest Remove="obj\Debug\netcoreapp2.2\EventProcessor.application" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Properties\launchSettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <RazorIntermediateAssembly Remove="obj\Debug\netcoreapp2.2\EventProcessor.Razor.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_RazorDebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.2\EventProcessor.Razor.pdb" />
+    </ItemGroup>
+
+</Project>
