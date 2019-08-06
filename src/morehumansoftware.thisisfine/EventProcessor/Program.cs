@@ -30,11 +30,17 @@ namespace morehumansoftware.thisisfine.EventProcessor
                                 {
                                     using (var scope = context.RequestServices.CreateScope())
                                     {
-                                        var sleep = Environment.GetEnvironmentVariable("sleep", EnvironmentVariableTarget.Process);
+                                        var sleep = Environment.GetEnvironmentVariable("sleep",
+                                            EnvironmentVariableTarget.Process);
                                         logger.LogInformation("Received  event.");
-                                        if(string.IsNullOrWhiteSpace(sleep))
+                                        if (string.IsNullOrWhiteSpace(sleep))
                                         {
+                                            var r = new Random();
+                                            var sleepTimer = r.Next(0, 10);
+                                            Thread.Sleep(new TimeSpan(0, 0, sleepTimer));
                                             context.Response.StatusCode = StatusCodes.Status200OK;
+                                            await context.Response.WriteAsync(
+                                                "OK - Everything is fine, about " + sleepTimer.ToString() + " seconds. ");
                                         }
                                         else
                                         {
@@ -43,22 +49,26 @@ namespace morehumansoftware.thisisfine.EventProcessor
                                             {
                                                 Thread.Sleep(new TimeSpan(0, 0, sleepTime));
                                                 context.Response.StatusCode = StatusCodes.Status200OK;
+                                                await context.Response.WriteAsync(
+                                                    "OK - Everything is fine, taking longer");
                                             }
                                             else
                                             {
                                                 context.Response.StatusCode = StatusCodes.Status200OK;
+                                                await context.Response.WriteAsync("OK - Everything is fine");
                                             }
-                                        } 
+                                        }
                                     }
                                 }
                                 catch (Exception e)
                                 {
                                     var errorText = "An error occurred during message event processing.";
-                                    logger.LogError(e,errorText);
+                                    logger.LogError(e, errorText);
                                     context.Response.StatusCode = StatusCodes.Status400BadRequest;
                                     context.Response.ContentType = "application/json";
-                                    await context.Response.WriteAsync(JsonConvert.SerializeObject(new {error = errorText}));
-                                } 
+                                    await context.Response.WriteAsync(
+                                        JsonConvert.SerializeObject(new {error = errorText}));
+                                }
                             }
                         );
                 })
@@ -66,6 +76,5 @@ namespace morehumansoftware.thisisfine.EventProcessor
 
             host.Run();
         }
-
     }
 }
